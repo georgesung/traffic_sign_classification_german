@@ -29,3 +29,7 @@ For my dataset augmentation step, run `python data_aug.py`
 You can step through the Jupyter Notebook at `Traffic_Signs_Recognition.ipynb`, or you can read the HTML export of the notebook at `Traffic_Signs_Recognition.html`.
 
 If you want to run the model training and prediction on sample images, in a stand-alone script, run `python traffic_signs.py`.
+
+### Pre-trained model
+
+The model I have trained is saved in `model.ckpt`, as a TensorFlow model.
