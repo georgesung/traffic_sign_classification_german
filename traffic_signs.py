@@ -30,7 +30,7 @@ OPT = tf.train.GradientDescentOptimizer(learning_rate=LR)  # choose which optimi
 
 # Training process
 RESUME = False  # resume training from previously trained model?
-NUM_EPOCH = 3 #0
+NUM_EPOCH = 30
 BATCH_SIZE = 128  # batch size for training (relatively small)
 BATCH_SIZE_INF = 2048  # batch size for running inference, e.g. calculating accuracy
 VALIDATION_SIZE = 0.2  # fraction of total training set to use as validation set
