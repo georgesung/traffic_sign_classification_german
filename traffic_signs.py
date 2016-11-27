@@ -417,10 +417,7 @@ def run_inference(image_files):
 
 
 if __name__ == '__main__':
-	# TODO: Copy code from bottom of https://github.com/georgesung/road_lane_line_detection/blob/master/lane_lines.py
-	# for option parsing stuff
-
-	#test_acc, accuracy_history = run_training()
+	test_acc, accuracy_history = run_training()
 
 	# Obtain list of sample image files
 	sample_images = ['sample_images/' + image_file for image_file in os.listdir('sample_images')]

@@ -159,8 +159,8 @@ if __name__ == '__main__':
 	#display_random_images(orig_data['features'])
 
 	# This actually creates the augmented dataset
-	#data_aug('train.p', 'train_aug.p', NUM_NEW_IMAGES)
+	data_aug('train.p', 'train_aug.p', NUM_NEW_IMAGES)
 	
 	# For debug, display random images from augmented dataset
-	display_random_aug('train_aug.p')
+	#display_random_aug('train_aug.p')
 

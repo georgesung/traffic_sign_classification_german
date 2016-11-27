@@ -12047,7 +12047,7 @@ Number of classes = 43
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Randomly-choose-3-images-from-training-set-and-display-them,-along-with-their-labels">Randomly choose 3 images from training set and display them, along with their labels<a class="anchor-link" href="#Randomly-choose-3-images-from-training-set-and-display-them,-along-with-their-labels">&#182;</a></h3>
+<h4 id="Randomly-choose-3-images-from-training-set-and-display-them,-along-with-their-labels">Randomly choose 3 images from training set and display them, along with their labels<a class="anchor-link" href="#Randomly-choose-3-images-from-training-set-and-display-them,-along-with-their-labels">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -17599,7 +17599,7 @@ gUAgEAgEAoFAIBAIBAKBQGCC/x8oOdGnVENheAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Display-histogram-to-show-class/label-distribution-across-training-data">Display histogram to show class/label distribution across training data<a class="anchor-link" href="#Display-histogram-to-show-class/label-distribution-across-training-data">&#182;</a></h3>
+<h4 id="Display-histogram-to-show-class/label-distribution-across-training-data">Display histogram to show class/label distribution across training data<a class="anchor-link" href="#Display-histogram-to-show-class/label-distribution-across-training-data">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -17940,7 +17940,7 @@ x3Ecx3Ecx3GcAYt3jjmO4ziO4ziO4ziO4zgDlv8CGTc5KmcxNLQAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As shown above, the training data's class distribution is highly skewed, so we must take this into account during the data pre-processing and/or batch generation phases.</p>
+<p>As shown above, the training data's class distribution is highly skewed, so we must keep this in mind.</p>
 
 </div>
 </div>
@@ -17950,7 +17950,7 @@ x3Ecx3Ecx3GcAYt3jjmO4ziO4ziO4ziO4zgDlv8CGTc5KmcxNLQAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Display-histogram-to-show-class/label-distribution-across-test-data">Display histogram to show class/label distribution across test data<a class="anchor-link" href="#Display-histogram-to-show-class/label-distribution-across-test-data">&#182;</a></h3>
+<h4 id="Display-histogram-to-show-class/label-distribution-across-test-data">Display histogram to show class/label distribution across test data<a class="anchor-link" href="#Display-histogram-to-show-class/label-distribution-across-test-data">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -18371,7 +18371,7 @@ Repeat 100,000 times:
     Add transformed image to augmented dataset
     Add appropriate label to augmented dataset
 Save augmented dataset to disk at train_aug.p</code></pre>
-<p>The data augmentation process was run only once (it took a few hours to run on my machine), and the augmented training data was saved in <code>train_aug.p</code>. The code for data augmentation can be found in <code>data_aug.py</code>.</p>
+<p>This will add 100,000 randomly transformed images to our original training set. The data augmentation process was run only once (it took a few hours to run on my machine), and the augmented training data was saved in <code>train_aug.p</code>. The code for data augmentation can be found in <code>data_aug.py</code>.</p>
 
 </div>
 </div>
@@ -21272,6 +21272,16 @@ hvFA+P+yWHVH0FWraQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>The transformed images look fine, by visual inspection.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Further-pre-processing-image-data">Further pre-processing image data<a class="anchor-link" href="#Further-pre-processing-image-data">&#182;</a></h4>
 </div>
 </div>
@@ -21487,7 +21497,7 @@ I performed the following data preprocessing steps:</p>
 <ul>
 <li>The overall dimensions of each layer are smaller, because our input image dimensions are smaller than that of the ImageNet challenge, and because we are trying to identify less classes</li>
 <li>I did <em>not</em> downsample in the first convolutional layer like AlexNet did, because our input image dimensions are so small</li>
-<li>I have one less convolutional layer after the 2nd pooling layer</li>
+<li>I have one less convolution layer after the 2nd pooling layer</li>
 </ul>
 <p>In summary, my neural network architecture consists of the following 10 layers (not counting dropout), in order from input to output:</p>
 <ul>
@@ -22229,13 +22239,14 @@ P6dXKW1OKipNAAAAAElFTkSuQmCC
 <p>My model was trained via standard Stochastic Gradient Descent (SGD). I did not experiment with other optimizers yet, but that can be a future enhancement to this project.</p>
 <p>When choosing a training batch size, I kept the following in mind:</p>
 <ul>
-<li>Batch size too small: Initial gradient updates will exhibit significant variance, causing slow convergence</li>
-<li>Batch size too big: Either (a) my GPU will simply run out of memory, or (b) a single gradient update will take too long, to a point where it is not worth the extra variance reduction from going to a larger batch size (we are basically trying to "optimize" the gradient descent convergence speed)
-Thus I chose a middle ground between the two extremes. I was not methodical in this process of batch size tuning, due to time constraints, and the return on investment of tuning the batch size did not seem high.</li>
+<li>Batch size too small: Initial gradient updates will exhibit significant variance, causing slow convergence.</li>
+<li>Batch size too big: Either (a) my GPU will simply run out of memory, or (b) a single gradient update will take too long, to a point where it is not worth the extra variance reduction from going to a larger batch size (we are basically trying to "optimize" the gradient descent convergence speed).</li>
 </ul>
+<p>Thus I chose a middle ground between the two extremes. I was not methodical in this process of batch size tuning, due to time constraints, and the return on investment of tuning the batch size did not seem high.</p>
 <p>The number of epochs was chosen such that it is large enough to see the training and validation accuracies saturating. This means the model cannot improve anymore, given more training time.</p>
-<p>The hyperparameters were chosen based on a random hyperparameter combination search. The code to perform the search is available in <code>search_params.py</code>. Basically I randomly chose 20 hyperparameter combinations, ran training on my model, and chose the hyperparameter combination that gave the highest test accuracy. Realistically, I should have used the validation accuracy to determine which hyperparameter combination was the best, since the test set should be "hidden" until the model has been finalized.</p>
+<p>The hyperparameters were chosen based on a random hyperparameter combination search. The code to perform the search is available in <code>search_params.py</code>. In this process, I randomly chose 20 hyperparameter combinations, ran training on my model, and chose the hyperparameter combination that gave the highest test accuracy. Realistically, I should have used the validation accuracy to determine which hyperparameter combination was the best, since the test set should be "hidden" until the model has been finalized.</p>
 <p>Looking at the above plot of train vs. validation accuracy, we can see the validation accuracy is only slighly below the training accuracy throughout the training process, which is a good sign.</p>
+<p>The model's accuracy on the official test set is 96.41%, which is a good score.</p>
 
 </div>
 </div>
@@ -22265,8 +22276,8 @@ Thus I chose a middle ground between the two extremes. I was not methodical in t
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The overall approach to tackling this problem is to use general supervised learning practices, such as train/validation/test split, data augmentation, data preprocessing, hyperparameter tuning, etc. The main area of creativity was in coming up with an appropriate neural network architecture for traffic sign image classification.</p>
-<p>Since traffic sign classification is an image classification problem similar to the ILSVRC competition (<a href="http://www.image-net.org/challenges/LSVRC/">http://www.image-net.org/challenges/LSVRC/</a>), my CNN model architecture was based on the 2012 ILSVRC winner AlexNet. I simplified and shrank the model to better fit the traffic sign classification problem at hand. I did not experiment with more recent complicated neural network architectures (e.g. Google Inception and Microsoft ResNet) due to project time constraints, and because a simple AlexNet-inspired architecture was giving above 95% test accuracy already. A potential enhancement to this project would be to explore more complicated neural network architectures.</p>
+<p>The overall approach to tackling this problem is to use general supervised learning practices, such as train/validation/test split, data augmentation, data preprocessing, hyperparameter tuning, etc. The main area of creativity was in coming up with an appropriate neural network architecture for traffic sign classification.</p>
+<p>Since traffic sign classification is an image classification problem similar to the ImageNet ILSVRC competition (<a href="http://www.image-net.org/challenges/LSVRC/">http://www.image-net.org/challenges/LSVRC/</a>), my CNN model architecture was based on the 2012 ILSVRC winner AlexNet. I simplified and shrank the model to better fit the traffic sign classification problem at hand. I did not experiment with more recent complicated neural network architectures (e.g. Google Inception and Microsoft ResNet) due to time constraints, and because a simple AlexNet-inspired architecture was giving above 96% test accuracy already. A potential enhancement to this project would be to explore more complicated neural network architectures.</p>
 
 </div>
 </div>
