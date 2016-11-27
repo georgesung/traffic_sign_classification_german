@@ -392,9 +392,6 @@ def run_inference(image_files):
 		# Run inference on CNN to make predictions
 		preds = sess.run(predictions, feed_dict={x: images, keep_prob: 1.})
 
-	# DEBUG
-	print('preds:\n%s' % (preds,))
-
 	# Load signnames.csv to map label number to sign string
 	label_map = {}
 	with open('signnames.csv', 'r') as f:
