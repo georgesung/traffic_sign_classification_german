@@ -1,10 +1,11 @@
-# Self-Driving Car Engineer Nanodegree
-# Deep Learning
-## Project: Build a Traffic Sign Recognition Program
+# Udacity Self-Driving Car Engineer Nanodegree
+## Traffic Sign Recognition using Deep Learning
 
 ### Overview
 
-In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train a model so it can decode traffic signs from natural images by using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then test your model program on new images of traffic signs you find on the web, or, if you're feeling adventurous pictures of traffic signs you find locally!
+This project creates and trains a deep convolutional neural network from scratch, with the task of classifying German traffic signs using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). The trained model is subsequently tested on German traffic signs found on the web, as well as US traffic signs.
+
+![img](traffic_sign.png)
 
 ### Dependencies
 
@@ -22,7 +23,7 @@ This project requires **Python 3.5** and the following Python libraries installe
 
 This project uses the German Traffic Sign Dataset. A pickled version that has images resized to 32x32 is available [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/October/580d53ce_traffic-sign-data/traffic-sign-data.zip). The pickle file was used as the raw data for this project.
 
-For my dataset augmentation step, run `python data_aug.py`
+For dataset augmentation, run `python data_aug.py`
 
 ### How to run
 
