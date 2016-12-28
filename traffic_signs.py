@@ -5,7 +5,6 @@ Use German Traffic Signs Dataset for training data, and test set data
 import tensorflow as tf
 import tensorflow.contrib.slim as slim  # TensorFlow-Slim
 import matplotlib.pyplot as plt
-#import matplotlib.image as mpimg
 from PIL import Image
 from sklearn.cross_validation import train_test_split
 import numpy as np
@@ -35,7 +34,7 @@ BATCH_SIZE = 128  # batch size for training (relatively small)
 BATCH_SIZE_INF = 2048  # batch size for running inference, e.g. calculating accuracy
 VALIDATION_SIZE = 0.2  # fraction of total training set to use as validation set
 SAVE_MODEL = True  # save trained model to disk?
-MODEL_SAVE_PATH = 'model.ckpt'  # where to save trained model
+MODEL_SAVE_PATH = './model.ckpt'  # where to save trained model
 
 ########################################################
 # Helper functions and generators
