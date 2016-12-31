@@ -6,7 +6,7 @@ import tensorflow as tf
 import tensorflow.contrib.slim as slim  # TensorFlow-Slim
 import matplotlib.pyplot as plt
 from PIL import Image
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 import numpy as np
 import cv2
 import math
